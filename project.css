@@ -255,4 +255,14 @@ p.about__container-link {
         padding: 0;
         margin: 0;
     }
+    .fixe {
+        position: fixed;
+    }
+    .site-menu {
+        position: absolute;
+        top: -50%;
+    }
+    .site-logo {
+        position: fixed;
+    }
 }

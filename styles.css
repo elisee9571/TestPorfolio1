@@ -129,10 +129,10 @@ body {
 /* hero */
 
 .wrapper {
-    width: 800px;
-    height: 600px;
+    width: 700px;
+    height: 500px;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
