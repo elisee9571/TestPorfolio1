@@ -20,24 +20,23 @@ body {
 
 h3 {
     position: absolute;
-    font-family: "Helvetica", sans-serif;
+    font-family: Helvetica;
     font-size: 16px;
     font-weight: lighter;
-    color: #fff;
-    margin: 30px 10px;
+    color: white !important;
+    margin: 20px;
 }
 
 .percent {
     position: fixed;
     display: flex;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 75px;
     flex-direction: column;
-    background: rgba(255, 255 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     height: 140px;
     width: 1px;
-    z-index: 3;
-    top: 50%;
-    left: 92.5%;
-    transform: translate(-50%, -50%);
 }
 
 .fill {
@@ -175,12 +174,14 @@ h3 {
         margin: 50px 100px 20px 80px;
     }
     .container-item-header h1 {
-        font-size: 30px !important;
+        font-size: 40px !important;
         left: -50%;
+        top: 100%;
+        transform: translate(-50%, -50%);
     }
     .container-item h1 {
         font-size: 40px;
-        bottom: -20px;
+        bottom: -30px;
     }
 }
 
@@ -242,5 +243,16 @@ p.about__container-link {
     }
     .cursor-follow {
         display: none;
+    }
+    .site-info {
+        display: none;
+    }
+    .navbar {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0;
+        margin: 0;
     }
 }

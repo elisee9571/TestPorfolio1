@@ -6,14 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
     <link rel="stylesheet" href="project.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.2.5/dist/locomotive-scroll.min.css">
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.2.5/dist/locomotive-scroll.min.js"></script>
 </head>
 
 <body id="js-scroll">
-    <div class="wrappe">
+    <div class="percent">
+        <div class="fill"></div>
+        <div class="counter">
+            <h3></h3>
+        </div>
+    </div>
 
+    <div class="wrappe">
         <!-- menu -->
         <div class="navBox">
             <div class="site-logo">Portfolio</div>
@@ -33,25 +41,43 @@
             </div>
         </div>
 
+
         <!-- about-section -->
         <div class="about__container" data-scroll-section>
             <p class="about__container-data" data-scroll>Hi! My name is <span>Elisee Desmarest</span> Im French and I'm a developper web, born in <span>Paris,</span> France.</p>
 
             <p data-scroll>If you have any questions or would like to have a chat, don't hesitate to <span class="#" target="_blank">get
                         in touch.</a></span></p>
-
         </div>
 
         <div class="cursor-follow"></div>
     </div>
     <script>
-        // smooth scroll 
-        const scroll = new LocomotiveScroll({
-            el: document.querySelector('#js-scroll'),
-            smooth: true,
-            smoothMobile: true,
-            inertia: 0.75
-        });
+        var counter = document.querySelector(".percent");
+
+        function progress() {
+            var windowScrollTop = $(window).scrollTop();
+            var docHeight = $(document).height();
+            var windowHeight = $(window).height();
+            var progress = (windowScrollTop / (docHeight - windowHeight)) * 100;
+
+            var $bgColor = progress > 99 ? "#fff" : "#fff";
+            var $textColor = progress > 99 ? "#fff" : "#fff";
+
+            $("h3")
+                .text(Math.round(progress) + "%")
+                .css({
+                    color: $textColor
+                });
+
+            $(".fill")
+                .height(progress + "%")
+                .css({
+                    backgroundColor: $bgColor
+                });
+        }
+        progress();
+        $(document).on("scroll", progress);
 
         // div following mouse 
         TweenMax.from(".cursor-follow", 2, {
